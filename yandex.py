@@ -10,7 +10,7 @@ def translate(text, to_lang, from_lang=None, api_key=None):
         lang = to_lang
     else:
         lang = from_lang + "-" + to_lang
-    args = "key={}&lang={}&text={}".format(api_key, lang, text)
+    args = "key={}&lang={}&text={}".format(api_key, lang, urllib.parse.quote(text))
     link = "https://translate.yandex.net/api/v1.5/tr/translate?" + args
     request = urllib.request.Request(link, method="POST")
     xml = urllib.request.urlopen(request).read().decode("utf-8")
@@ -22,3 +22,4 @@ if __name__ == '__main__':
     key = ""
     print(translate('Hola como estas?', 'ru', api_key=key))
     print(translate('Hola como estas?', 'en', api_key=key))
+
