@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import notify2, pyperclip
 from translate import translate
 
