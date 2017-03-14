@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 import notify2, pyperclip
 from translate import translate
+import subprocess
+
+subprocess.call("xclip -out -selection primary | xclip -in -selection clipboard", shell=True)
 
 text = pyperclip.paste()
 
