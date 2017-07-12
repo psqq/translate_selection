@@ -7,7 +7,7 @@ from sys import platform
 if platform in ["linux", "linux2"]:
     subprocess.call("xclip -out -selection primary | xclip -in -selection clipboard", shell=True)
 
-text = pyperclip.paste()
+text = pyperclip.paste().replace("\n", " ")
 
 translated_text = translate({
     "from": None,
